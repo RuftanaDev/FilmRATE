@@ -1,25 +1,34 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" contetn="With us you can read about film that are trending and read their reviews. No Ads and easy to find and read about films. You can even affect the film rating by giving feedbacks. ">
+    <meta name="description" content="With us you can read about film that are trending and read their reviews. No Ads and easy to find and read about films. You can even affect the film rating by giving feedbacks. ">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Film Rating</title>
 </head>
 <body>
+    <noscript>
+        <h1>You need to turn on the javascript in order to get the full experience!!</h1>
+    </noscript>
 
-
-    <div id="container">
+    <main id="container">
         <header>
             <div id="logo">
-                <img src="images/file.svg" alt="logo of the webpage">
-            </div>  
-             <input  id="searchInput" type="text" placeholder="Star Wars A New Hope">
-            <div id="filter">Filter↓</div>
+                <img  src="images/file.svg" alt="logo of the webpage">
+            </div> 
+            <input  id="searchInput" type="text" placeholder="Star Wars A New Hope">
+            <button id="filter">Filter↓</button>
+            <div id="filterMenu">
+                <button class="filterBtn" data-section="all">Visa alla</button>
+                <button class="filterBtn" data-section="trending">Trending</button>
+                <button class="filterBtn" data-section="action">Action</button>
+                <button class="filterBtn" data-section="horror">Horror</button>
+                <button class="filterBtn" data-section="comedy">Comedy</button>
+            </div>
         </header>
         
-            <div id="searchResults" style="display: none">
+            <div id="searchResults">
                 <h2>Sök Resultet</h2>
                 <div id="searchLists">
                     
@@ -29,152 +38,166 @@
             <h1>Trending</h1>
             <div id="trending_list">
                 <div class="films_boxes">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 
                 
             </div>
         </div>
         <div id="action" class="offWhenSearched">
-            <h1>Action</h3>
+            <h1>Action</h1>
             <div id="action_list">
                 <div class="films_boxes_action">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes_action">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes_action">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes_action">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes_action">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes_action">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes_action">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes_action">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes_action">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes_action">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
             </div>
         </div>
         
         <div id="horror" class="offWhenSearched">
-            <h1>Horror</h3>
+            <h1>Horror</h1>
             <div id="horror_list">
                 <div class="films_boxes_horror">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes_horror">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes_horror">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes_horror">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes_horror">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes_horror">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes_horror">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes_horror">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes_horror">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes_horror">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
             </div>
         </div>
         
         <div id="comedy" class="offWhenSearched">
-            <h1>Comedy</h3>
+            <h1>Comedy</h1>
             <div id="comedy_list">
                 <div class="films_boxes_comedy">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes_comedy">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes_comedy">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes_comedy">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes_comedy">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes_comedy">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes_comedy">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes_comedy">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes_comedy">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
                 <div class="films_boxes_comedy">
-                    <img src="" alt="">
+                    <img src="images/images.png" alt="Film inte tillgängligt">
                 </div>
             </div>
         </div>
-        <footer>
-            <h1>Kontakta</h1>   
-            <p>Email:kontaktcenter@filmrate.movie</p>
-            <p>Telefon: +467000-09090</p>
+        <footer class="offWhenSearched">
+            <h1>Kontakta</h1> 
+            
+            
+            <div id="logo_links">
+                <a href="mailto:notme@proton.me" target="_blank" aria-label="Mejla mig" class = "ikon mejl"></a>
+                <a href="tel:+46767676767" target="_blank" aria-label="Ringa mig" class = "ikon telefon"></a>
+            </div>
+            <a href="https://arbetsformedlingen.se/">Jobba hos oss</a>
+            <p>FilmRate © 2026–2036</p>
         </footer>
-    </div>
+        <div id="trailerModal">
+            <div id="trailerOverlay"></div>
+            <div id="trailerBox">
+                <button id="close">X</button>
+                <h2 id="trailerTitle">Film</h2>
+                <div id="trailerContent"></div>
+            </div>
+        </div>
+    </main>
     
 <script src="js.js"></script>
 
