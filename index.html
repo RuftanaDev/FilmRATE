@@ -1,27 +1,42 @@
+<!--DOCTYPE talar om för webbläsaren att detta är HTML5 -->
 <!DOCTYPE html>
+<!-- lang = en hjälper skärmläsaren att uttala texten på engleska-->
 <html lang="en">
+    <!-- den innehåller inställningar och metadata-->
 <head>
+    <!--UTF-8 stöder svenska tecken(å,ä,ö ) och emoji -->
     <meta charset="UTF-8">
+    <!-- beskriving av sidan visas i sökresultat(chrome, edge eller firefox)-->
     <meta name="description" content="With us you can read about film that are trending and read their reviews. No Ads and easy to find and read about films. You can even affect the film rating by giving feedbacks. ">
+    <!--viewport gör att sidan skalas rätt på mobil utan det ser mobilen sidan som en desktop-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- kopplar in CSS-filen stype.css-->
     <link rel="stylesheet" href="style.css">
+    <!--Titeln visas i webbläsarfliken och i bokmärken-->
     <title>Film Rating</title>
 </head>
 <body>
+    <!--noscript visas bara om JS är avstängt i webbläasaren-->
     <noscript>
         <h1>You need to turn on the javascript in order to get the full experience!!</h1>
     </noscript>
-    <!-- I container finns alla innehåll -->
+    <!-- main är ett semantiskt HTML5 element som markerar sidan huvudinnehåll-->
     <main id="container">
-        <!-- här finns logo, searchinput och filter menu -->
+        <!-- header är semantisk- talar om att detta är sidans toppsektion -->
         <header>
+            <!--logo wrap: en div runt logobilden för enkel positionering-->
             <div id="logo">
+                <!--alt texten beskriver bilden för skärmläsare och visas om bilden inte laddas-->
                 <img  src="images/file.svg" alt="logo of the webpage">
             </div> 
+            <!--sökfältet där användaren skriver ett filmnamn och trycker Enter
+            placeholder texten cisar ett exemple på vad man kan söka på-->
             <input  id="searchInput" type="text" placeholder="Star Wars A New Hope">  
-            <!--Unseenable gör att filter och filtermenu blir gömmda om js är inte aktivt  -->
+            <!--JS för den synlig på så sätt fungerar filter bara om JS är aktivt(DOM)-->
             <div id="unseenable">
+                <!-- Filterknapp som öppnar/stänger filtermenyn visa JS-->
                 <button id="filter">Filter↓</button>
+                <!-- Filtermenyn med knappar för varje genre + visa alla-->
                 <div id="filterMenu">
                     <button class="filterBtn" data-section="all">Visa alla</button>
                     <button class="filterBtn" data-section="trending">Trending</button>
@@ -30,14 +45,14 @@
                     <button class="filterBtn" data-section="comedy">Comedy</button>
                 </div>
             </div>
-            
+            <!--slut på header-->
         </header>
-        <!--här kommer alla sök resultet och innehållet skapas av javascript-->
+        <!--här kommer alla sök resultet och innehållet fyllas och skapas av javascript-->
         <div id="searchResults">
             <h2>Sök Resultet</h2>
             <div id="searchLists"> </div>
         </div>
-        <!-- Här finns trendingfilmers box -->
+        <!-- Här finns trendingfilmers box  och klassen offWhenSearched används av JS för att gömma alla sektioner vid sökning -->
         <div id="trending" class="offWhenSearched">
             <h1>Trending</h1>
             <div id="trending_list">
@@ -190,7 +205,9 @@
                 <a href="mailto:notme@proton.me" target="_blank" aria-label="Mejla mig" class = "ikon mejl"></a>
                 <a href="tel:+46767676767" target="_blank" aria-label="Ringa mig" class = "ikon telefon"></a>
             </div>
+            <!-- länk till arbetsförmedligen och öppnas i ny flik när klickade -->
             <a href="https://arbetsformedlingen.se/">Jobba hos oss</a>
+            <!-- Copyright text -->
             <p>FilmRate © 2026–2036</p>
         </footer>
         <!-- Här ligger en box för trailer när man klicker på en box kommer den här visas upp och det tar personen till youtube med search query som de valde. -->
