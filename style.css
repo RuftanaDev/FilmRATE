@@ -1,12 +1,18 @@
 body{
-    min-height: 100vh;
+    min-height: 100vh;/*   min-height 100vh gör att kroppen täcker minst hela skärmhjöden och förhindrar att sidan ser ut kort ut om det finns lite innehåll */
 }
+/* #container är huvud-container- 
+ använder CSS grid för att dela upp sidan i rader:
+ header, trending, action, horror, comedy, footer */
 #container{
-
     height: 100%;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 9.2% 20% 20% 20.8% 20% 10%;
+    display: grid; /*Aktiverar CSS grid*/
+    grid-template-columns: 100%; /*en kolumn som tar hela bredden*/
+
+    /*Varje rad får en procentuell höjd av skärmen*/
+    grid-template-rows: 9.2% 20% 20% 20.8% 20% 10%; 
+    /*grid-template-colums ger varje rad ett na,n-
+    matchar grid area på respektiv element nedan*/
     grid-template-areas:
     "header"
     "trending"
@@ -15,138 +21,130 @@ body{
     "comedy"
     "footer" ;
 }
-
+/*header används också Grid för att placera logo, sökfält och filter i rätt positioner*/
 header{
     height: 200px;
-    grid-area: header; 
+    grid-area: header; /*Placeras i "header* arean från #container*/
     display: grid;
-    grid-template-columns: 30% 50% 20%;
+    grid-template-columns: 30% 50% 20%; /*logo sökfält filter*/
     grid-template-rows: 70% 20%;
     grid-template-areas: 
-    "logo . ."
-    ". . filter";
-    position: sticky;
-    top: 20px;
-}
+    "logo . ." /*logon uppe till vänster, resten ska vara tomt*/
+    ". . filter"; /*filter nere till höger*/
+    position: sticky;/*headern följer med när man scrollar*/
+    top: 20px; /*20px avstånd från toppen vid scroll*/
+} 
+/*Logons grid-placering*/
 #logo {
     grid-area: logo;
 }
-
+/*Logobildens storlek - negativit margin-top drar upp den 90pixlar*/
 #logo > img {
     width: 420px;
     height: 240px;
-margin-top: -90px;
+margin-top: -90px; /*Justering uppåt för balansen*/
 }
+/*sökfältet dolt i html, javascript gör det synligt*/
 header > input{
     width: 500px;
     height: 30px;
-    border-radius: 20px ;
-    display: none;
+    border-radius: 20px ; /*runda hörn*/
+    display: none; /*dolt innehåll tills JS aktivit*/
 
 }
+/*filter knappen*/
 #filter{
-    color:rgb(33, 57, 163);
+    color:rgb(33, 57, 163); /*blå text färg*/
     grid-area:filter;
-    cursor: pointer;
-    display: none;
+    cursor: pointer; /*Handen-cursor vid hover*/
     border: none;
-    background-color: transparent;
+    background-color: transparent; /*knapppen syns inte som en knapp men mer som en text*/
 }
-#trending{
-    grid-area: trending; 
-    
-}
-#action{
-    grid-area: action; 
-    
-}
-#horror{
-    grid-area:horror; 
-    
-}
-#comedy{
-    grid-area:comedy; 
-    
-}
-footer{
-    grid-area: footer;
-}
+/*Genre sektioner och varje sektion placers i sin grid-area*/
+#trending{grid-area: trending;}
+#action{grid-area: action; }
+#horror{grid-area:horror; }
+#comedy{grid-area:comedy; }
+footer{grid-area: footer;}
+/*film listornas continer*/
 #trending_list, #action_list, #horror_list, #comedy_list{
-    display: flex;
-    overflow: hidden;
-    gap:15px;
-
-    
+    display: flex; /*det här gör att boxerna ligger i rad*/
+    overflow: hidden; /*klipper bort vad som sticker utanför boxens uttryme*/
+    gap:15px; /*skapar mellan uttryme mellan varje box*/
 }
+/*filmboxar all fyra genrer delar stilar*/
 .films_boxes_comedy,.films_boxes_horror, .films_boxes_action,.films_boxes{
-    
     width: 300px;
     height: 360px;
-    flex-shrink: 0; 
-    justify-content: space-between;
-    animation: slide 25s linear infinite;
+    flex-shrink: 0;  /*tillåt inte att boxarna krymper*/
+    animation: slide 25s linear infinite; /*kontinuerlig löpande animation*/
 }
+/*film posternas vilder fyller hela boxen*/
 .films_boxes_comedy img,.films_boxes_horror img, .films_boxes_action img,.films_boxes img{
     width : 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /*fyller ytan utan att förvränga bilden (beskärs vid behov)*/
 }
+/* sökresultat rutan visas ovanpå genresektionerna när man söker*/
 #searchResults{
-    grid-area: trending; /*sitter på trendning section när det är aktiv*/
+    grid-area: trending; /*börjar på trending-raden*/
+    grid-row: 2/7;/* och sträcker sig ner till och med footer-radden*/
     background: white;
     padding: 10px;
-    z-index: 10;
+    z-index: 10; /*hamnar ovanpå allt annat innehåll*/
     position: relative;
-    overflow-y: auto;
-    grid-row: 2/7;
-    display: none;
+    overflow-y: auto; /*scrollbar om resultaten är fler än rutan rymmer*/
+    display: none; /*dold tills en sökning görs och blir aktivit med JS*/
 }
+/*lista med sökresultaten*/
 #searchLists{
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /*resultaten staplas vertikalt*/
     gap:10px;
 }
+/*en enskild sökresultat-rad*/
 .search_boxes{
     display: flex;
-    align-items: center;
+    align-items: center; /*bild och text centrerade vertikalt*/
     gap: 15px;
     padding: 10px;
     cursor: pointer;
 }
+/*posterbild i sökresultaten*/
 .search_boxes img{
     width: 80px;
     height:120px;
     object-fit: cover;
-    flex-shrink: 0;
+    flex-shrink: 0; /*bilden krymper inte om text är lång*/
 }
-.search_boxes_info h3{
-    margin: 0 0 5px 0;
-}
-.search_boxes_info p{
-    color: gray;
-    margin: 0;
-}
+/*text inom sökresultat*/
+.search_boxes_info h3{margin: 0 0 5px 0;}
+.search_boxes_info p{color: gray;}
+/*popup  hela modal-wrappern täcker hela skärmen (inset:0)*/
 #trailerModal{
-    position: fixed;
-    inset: 0;
+    position: fixed; /*fixerad scrollar inte med sidan*/
+    inset: 0; /*top/right/bottom/left = 0, täcker hela viewporten*/
     z-index: 100;
-    display:none;
+    display:none; /*dold tills en film klickas*/
 }
+/*mörk halvtransparent backgrund bakom popup rutan*/
 #trailerOverlay{
     position: absolute;
     inset: 0;
-    background-color: rgba(0,0,0,0.85);
+    background-color: rgba(0,0,0,0.85); /*85% svart*/
 }
+/*själva popup rutan, centrerad med transform-trick*/
 #trailerBox{
     position: absolute;
     top:50%;
     left:50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); /*drar tillbaka 50% av sin egna bredd/höjd*/
     background: black;
     width: 90%;
     max-width: 800px;
-    z-index: 101;
+    z-index: 101; /*ovanpå overlay lagret*/
 }
+/*stångknapp(X) i övre högra hörnet*/
 #close{
     position: absolute;
     top:10px;
@@ -168,7 +166,9 @@ footer{
     color:gray;
     text-align: center;
     margin-top:20px;
-}.trailer_fallback {
+}
+/*fallback vy med youtube.länk*/
+.trailer_fallback {
     text-align: center;
     padding: 40px 20px;
     color: white;
@@ -178,20 +178,21 @@ footer{
     margin-bottom: 20px;
     font-size: 1rem;
 }
-
+/*youtube.knappen*/
 .trailer_btn {
     background: red;
-    color: rgb(163, 160, 160);
+    color: rgb(154, 152, 152);
     padding: 14px 28px;
     border-radius: 8px;
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: bold;
 }
-
 .trailer_btn:hover {
-    background: darkred;
+    background: darkred; /*Mörkare röd vid hover*/
 }
+/*en stor vild som innehåller flera ikoner. man kan visar bara 
+rätt del med background-position.*/
 .ikon {
     background: url("images/sprite.png") -10px -10px;
     background-size: 200px auto;
@@ -200,20 +201,20 @@ footer{
     cursor: pointer;
     display:inline-block;
 }
-
-.mejl{
-    background-position: 80px 0;
-}
-.telefon{
-    background-position: 0 0;
-}
-#logo_links{
-    display: block;
-}
+/*mejl-ikonen höger halv av spriten*/
+.mejl{background-position: 80px 0;}
+/*telefon-ikonen vänster halv av spriten*/
+.telefon{background-position: 0 0;}
+/*footer text*/
 footer > p{
     text-align: center;
     font-size: 20px;
 }
+/*det här gör att filer.meyn aldrig syns utan js*/
+#unseenable{
+    display: none;
+}
+/*filter meny dropdown*/
 #filterMenu {
     position: absolute;
     top: 60px;
@@ -227,7 +228,7 @@ footer > p{
     gap: 8px;
     z-index: 50;
 }
-
+/*knappar i filtermenyn*/
 .filterBtn {
     background: #2a2a2a;
     color: white;
@@ -237,22 +238,19 @@ footer > p{
     cursor: pointer;
     font-size: 0.95rem;
     text-align: left;
-    transition: background 0.2s;
+    transition: background 0.2s; /*mjuk färgövergång vid hover*/
 }
-
-.filterBtn:hover {
-    background: #e50914;
+.filterBtn:hover, .filterBtn.active  {
+    background: #e50914; /*aktiv knapp markeras i rött och vid hover*/
 }
-
-.filterBtn.active {
-    background: #e50914;
-}
+/*boxarna glider från start (translate 0) till -470 utanför vänster kant i loop*/
 @keyframes slide {
     from {transform: translate(0);}
     to  {transform: translate(-470%);}
 }
-@media screen and (max-width:800px) {
-    
+/*responsivitet- movilanåassning träder in när skärmen är max 800px bred */
+@media screen and (max-width:1000px) {
+    /*Header en enda rad med logo till vänster och filter till höger*/
 header{
     height: 100px;
     grid-template-columns: 30% 50% 20%;
@@ -261,20 +259,21 @@ header{
     "logo . filter";
     top: 10px; 
 }
+/*sökfältet krymper på mobil*/
 header > input{
     width: 100px;
     height: 20px;
 }
-
+/*filmboxarna lite smalare på mobil och surfplatta*/
 .films_boxes_comedy,.films_boxes_horror, .films_boxes_action,.films_boxes{
-  
     width: 260px;
     height: 360px;
-
 }
+/*logobilden tar full bredd av sin kolumn*/
 #logo > img {
     width: 100%;
 }
+/*omdefiniererar grid raderna för mobil och surfplatta*/
 #container{
     grid-template-columns: 100%;
     grid-template-rows: 6.2% 23% 22% 22.8% 22% 4%;

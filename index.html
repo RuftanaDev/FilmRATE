@@ -11,29 +11,33 @@
     <noscript>
         <h1>You need to turn on the javascript in order to get the full experience!!</h1>
     </noscript>
-
+    <!-- I container finns alla innehåll -->
     <main id="container">
+        <!-- här finns logo, searchinput och filter menu -->
         <header>
             <div id="logo">
                 <img  src="images/file.svg" alt="logo of the webpage">
             </div> 
-            <input  id="searchInput" type="text" placeholder="Star Wars A New Hope">
-            <button id="filter">Filter↓</button>
-            <div id="filterMenu">
-                <button class="filterBtn" data-section="all">Visa alla</button>
-                <button class="filterBtn" data-section="trending">Trending</button>
-                <button class="filterBtn" data-section="action">Action</button>
-                <button class="filterBtn" data-section="horror">Horror</button>
-                <button class="filterBtn" data-section="comedy">Comedy</button>
-            </div>
-        </header>
-        
-            <div id="searchResults">
-                <h2>Sök Resultet</h2>
-                <div id="searchLists">
-                    
+            <input  id="searchInput" type="text" placeholder="Star Wars A New Hope">  
+            <!--Unseenable gör att filter och filtermenu blir gömmda om js är inte aktivt  -->
+            <div id="unseenable">
+                <button id="filter">Filter↓</button>
+                <div id="filterMenu">
+                    <button class="filterBtn" data-section="all">Visa alla</button>
+                    <button class="filterBtn" data-section="trending">Trending</button>
+                    <button class="filterBtn" data-section="action">Action</button>
+                    <button class="filterBtn" data-section="horror">Horror</button>
+                    <button class="filterBtn" data-section="comedy">Comedy</button>
                 </div>
             </div>
+            
+        </header>
+        <!--här kommer alla sök resultet och innehållet skapas av javascript-->
+        <div id="searchResults">
+            <h2>Sök Resultet</h2>
+            <div id="searchLists"> </div>
+        </div>
+        <!-- Här finns trendingfilmers box -->
         <div id="trending" class="offWhenSearched">
             <h1>Trending</h1>
             <div id="trending_list">
@@ -71,6 +75,7 @@
                 
             </div>
         </div>
+        <!-- Här finns Actionfilm box -->
         <div id="action" class="offWhenSearched">
             <h1>Action</h1>
             <div id="action_list">
@@ -106,7 +111,7 @@
                 </div>
             </div>
         </div>
-        
+        <!-- Här finns horror film boxar-->
         <div id="horror" class="offWhenSearched">
             <h1>Horror</h1>
             <div id="horror_list">
@@ -142,7 +147,7 @@
                 </div>
             </div>
         </div>
-        
+        <!-- Här finns comedyfilm boxar-->
         <div id="comedy" class="offWhenSearched">
             <h1>Comedy</h1>
             <div id="comedy_list">
@@ -178,10 +183,9 @@
                 </div>
             </div>
         </div>
+        <!-- Här finns kontakt uppgift så som email, och telefonnumeret inom en css sprit bild samt en länk som tar till arbetsförmeljin i en text som är enbedded med en text som säger Jobba hos oss -->
         <footer class="offWhenSearched">
-            <h1>Kontakta</h1> 
-            
-            
+            <h1>Kontakta</h1>
             <div id="logo_links">
                 <a href="mailto:notme@proton.me" target="_blank" aria-label="Mejla mig" class = "ikon mejl"></a>
                 <a href="tel:+46767676767" target="_blank" aria-label="Ringa mig" class = "ikon telefon"></a>
@@ -189,6 +193,7 @@
             <a href="https://arbetsformedlingen.se/">Jobba hos oss</a>
             <p>FilmRate © 2026–2036</p>
         </footer>
+        <!-- Här ligger en box för trailer när man klicker på en box kommer den här visas upp och det tar personen till youtube med search query som de valde. -->
         <div id="trailerModal">
             <div id="trailerOverlay"></div>
             <div id="trailerBox">
@@ -198,8 +203,7 @@
             </div>
         </div>
     </main>
-    
-<script src="js.js"></script>
-
+    <!-- länk till javascriptet -->
+    <script src="js.js"></script>
 </body>
 </html>
